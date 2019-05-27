@@ -9,11 +9,17 @@ request('https://medium.com/@ruthnewman', (error,
     const $ = cheerio.load(html);
 
     const blogTitle = $('.cj');
-    const firstBlogTitle = $('.ez fa ce ah cg fb fc fd')
+    const blogContent = $('section');
+
 
     // console.log(blogTitle.html());
     // console.log(blogTitle.text());
-    const bloggerName = blogTitle.children('h1')
-    console.log(bloggerName.text())
+
+    const blogContentChildren = blogContent.children('div');
+
+    const blogContentGrandChildren = blogContentChildren.children('h1');
+        console.log(blogContentGrandChildren.text());
+    // const bloggerName = blogTitle.children('h1')
+    // console.log(bloggerName.text())
   }
 });
