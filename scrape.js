@@ -15,12 +15,20 @@ request('https://medium.com/@ruthnewman', (error,
         console.log(blogTitle);
       })
 
+    const blogLinks = []
+
     $('div a').each((iteration, element) => {
       const link = $(element).attr('href');
-      const blogLinks = []
+
       if(!link.includes('signin') && !link.includes('upgrade') && link.length > 50) {
-        console.log(link)
+        blogLinks.push(link);
+        
       }
+
     })
+
+    let filteredLinks = (blogLinks) => blogLinks.filter((v, i) => blogLinks.indexOf(v) === i);
+    const allLinks = filteredLinks(blogLinks)
+    allLinks.forEach(link => console.log('Link at: ' + link))
   }
 });
